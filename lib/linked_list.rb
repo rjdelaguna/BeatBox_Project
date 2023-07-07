@@ -12,6 +12,37 @@ class LinkedList
         end
     end
 
+    def prepend(text)
+        node = Node.new(text)
+        if @head == nil
+            @head = node
+        else node.next_node = @head
+            @head = node
+        end
+    end
+
+    def insert(position, text)
+        node = Node.new(text)
+        if @head == nil
+            @head = node
+        elsif position == 0
+            node.next_node = @head
+            @head = node
+        else first = node_position(@head, position - 1)
+            following_node = node_position(head, position)
+            first.next_node = node
+            node.next_node = following_node
+            node
+        end
+    end
+
+    def node_position(node, position, counter = 0)
+        if position == counter
+            node
+        else node_position(node.next_node, position, counter += 1)
+        end
+    end
+
     def tail(node)
         if node.last_node? == true
             node

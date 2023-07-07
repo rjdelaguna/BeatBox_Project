@@ -66,4 +66,46 @@ RSpec.describe LinkedList do
         end
     end
 
+    describe "#prepend method" do
+        it "still appends multiple nodes" do
+            list = LinkedList.new
+            list.append("plop")
+            list.append("suu")
+
+            expect(list.to_string).to eq("plop suu")
+        end
+
+        it "adds new node as head" do
+            list = LinkedList.new
+            list.append("plop")
+            list.prepend("dop")
+            list.append("beep")
+            list.prepend("suu")
+            list.append("ram")
+            list.prepend("bam")
+
+            expect(list.to_string).to eq("bam suu dop plop beep ram")
+        end
+    end
+
+    describe "#insert method" do
+        it "places node at selected link" do
+            list = LinkedList.new
+            list.append("plop")
+            list.prepend("dop")
+            list.append("beep")
+            list.prepend("suu")
+            list.append("ram")
+            list.prepend("bam")
+            list.insert(0, "woo")
+            list.insert(0, "blam")
+
+            p list.count
+            p list.to_string
+
+            expect(list.count).to eq(8)
+            expect(list.to_string).to eq("blam woo bam suu dop plop beep ram")
+        end
+    end
+
 end
