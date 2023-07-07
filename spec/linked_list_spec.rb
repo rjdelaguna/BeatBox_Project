@@ -100,12 +100,54 @@ RSpec.describe LinkedList do
             list.insert(0, "woo")
             list.insert(0, "blam")
 
-            p list.count
-            p list.to_string
-
             expect(list.count).to eq(8)
             expect(list.to_string).to eq("blam woo bam suu dop plop beep ram")
         end
     end
+
+    describe "#find method" do
+        it "returns data in called position, plus those following" do
+            list = LinkedList.new
+            list.append("deep")
+            list.append("woo")
+            list.append("shi")
+            list.append("shu")
+            list.append("blop")
+
+            expect(list.find(2, 1)).to eq("shi")
+            expect(list.find(1, 3)).to eq("woo shi shu")
+        end
+    end
+
+    describe "#includes method" do
+        it "returns true/false if data exists" do
+            list = LinkedList.new
+            list.append("deep")
+            list.append("woo")
+            list.append("shi")
+            list.append("shu")
+            list.append("blop")
+
+            expect(list.includes?("deep")).to eq(true)
+            expect(list.includes?("dep")).to eq(false)
+        end
+    end
+
+    describe "pop method" do
+        it "removes last data from list" do
+            list = LinkedList.new
+            list.append("deep")
+            list.append("woo")
+            list.append("shi")
+            list.append("shu")
+            list.append("blop")
+            p list.to_string
+            p list.pop
+            p list.to_string
+
+            # expect(list.pop).to eq("blop")
+        end
+    end
+
 
 end

@@ -12,6 +12,13 @@ class LinkedList
         end
     end
 
+    def tail(node)
+        if node.last_node? == true
+            node
+        else tail(node.next_node)
+        end
+    end
+
     def prepend(text)
         node = Node.new(text)
         if @head == nil
@@ -43,13 +50,6 @@ class LinkedList
         end
     end
 
-    def tail(node)
-        if node.last_node? == true
-            node
-        else tail(node.next_node)
-        end
-    end
-
     def count
         if @head == nil
             0
@@ -74,12 +74,38 @@ class LinkedList
         end
     end
 
-    def string(node, starter)
-        if node.last_node? == true
+    def string(node, starter, stop = 0, counter = 1)
+        if node.last_node? == true || stop == counter
             starter << " #{node.data}"
         else starter << " #{node.data}"
-            string(node.next_node, starter)
+            string(node.next_node, starter, stop, counter += 1)
         end
+    end
+
+    def find(position, strings)
+        node = node_position(@head, position)
+        if strings == 1
+            node.data
+        else string(node.next_node, "#{node.data}", strings -= 1)
+        end
+    end
+
+    def includes?(data)
+        data_finder(@head, data)
+    end
+
+    def data_finder(node, data)
+        if node.data == data
+            true
+        elsif node.last_node? == true
+            false
+        else data_finder(node.next_node, data)
+        end
+    end
+
+    def pop
+        node = node_position(@head, count - 2)
+        node.next_node = nil
     end
 
 end
