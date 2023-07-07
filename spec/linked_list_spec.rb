@@ -35,4 +35,32 @@ RSpec.describe LinkedList do
 
         expect(list.to_string).to eq("doop")
     end
+
+    describe "multiple nodes" do
+        it "new list still has empty head position" do
+            list = LinkedList.new
+            
+            expect(list.head).to eq(nil)
+        end
+
+        it "appends a single node into the head position" do
+            list = LinkedList.new
+            list.append("doop")
+
+            expect(list.head.data).to eq("doop")
+            expect(list.head.next_node).to eq(nil)
+        end
+
+        it "appends two nodes, the first being the head" do
+            list = LinkedList.new
+            list.append("doop")
+            list.append("deep")
+#require 'pry'; binding.pry
+            expect(list.head.data).to eq("doop")
+            expect(list.head.next_node.data).to eq("deep")
+            expect(list.count).to eq(2)
+            expect(list.to_string).to eq("doop deep")
+        end
+    end
+
 end
