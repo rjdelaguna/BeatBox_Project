@@ -13,10 +13,28 @@ RSpec.describe BeatBox do
 
     it "appends strings into individual nodes" do
         bb = BeatBox.new
-        bb.append("deep do ditt")
+        bb.append("  deep  doo  ditt")
+        bb.append("woo hoo shu")
         
         expect(bb.list.head.data).to eq("deep")
         expect(bb.list.head.next_node.data).to eq("doo")
+        expect(bb.count).to eq(6)
     end
 
+    it "prepends strings" do
+        bb = BeatBox.new
+        bb.append("woo hoo shu")
+        bb.prepend(" deep blue   shu")
+
+        expect(bb.list.head.data).to eq ("deep")
+    end
+
+    it "plays sounds" do
+        bb = BeatBox.new
+        bb.append("deep doo ditt woo hoo shu")
+        bb.play
+
+        expect(bb.count).to eq(6)
+        expect(bb.list.count).to eq(6)
+    end
 end
