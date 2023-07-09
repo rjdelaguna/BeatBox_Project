@@ -30,11 +30,11 @@ class LinkedList
 
     def insert(position, text)
         node = Node.new(text)
-        if @head == nil
+        if position + 1 > self.count
+        elsif @head == nil
             @head = node
         elsif position == 0
-            node.next_node = @head
-            @head = node
+            prepend(text)
         else first = node_position(@head, position - 1)
             following_node = node_position(head, position)
             first.next_node = node
@@ -107,5 +107,6 @@ class LinkedList
         node = node_position(@head, count - 2)
         node.next_node = nil
     end
+
 
 end

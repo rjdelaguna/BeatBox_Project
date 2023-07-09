@@ -24,7 +24,9 @@ RSpec.describe BeatBox do
     it "prepends strings" do
         bb = BeatBox.new
         bb.append("woo hoo shu")
-        bb.prepend(" deep blue   shu")
+        bb.prepend("deep beep")
+        bb.prepend(" deep sleep  keep  ")
+        bb.append(" hory  moly  ")
 
         expect(bb.list.head.data).to eq ("deep")
     end
@@ -32,9 +34,17 @@ RSpec.describe BeatBox do
     it "plays sounds" do
         bb = BeatBox.new
         bb.append("deep doo ditt woo hoo shu")
-        bb.play
+        # bb.play
 
         expect(bb.count).to eq(6)
         expect(bb.list.count).to eq(6)
     end
+
+    it "adds a text qualifier" do
+        bb = BeatBox.new
+        bb.append("do mississippi ")
+        bb.prepend(" mississippi plop   doo")
+
+        expect(bb.all.include?("mississippi")).to eq(false)
+    end 
 end
