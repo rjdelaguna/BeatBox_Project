@@ -64,7 +64,6 @@ class LinkedList
         end
     end
 
-
     def to_string
         if @head == nil
             ""
@@ -107,6 +106,4 @@ class LinkedList
         node = node_position(@head, count - 2)
         node.next_node = nil
     end
-
-
 end

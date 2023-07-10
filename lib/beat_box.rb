@@ -1,7 +1,18 @@
 class BeatBox
-    attr_reader :list
-    def initialize
+    attr_reader :list, :initial, :rate, :voice
+    def initialize(initial = "")
         @list = LinkedList.new
+        @initial = initial?(initial)
+        @rate = 500
+        @voice = "Boing"
+    end
+    
+    def initial?(string)
+        if string == ""
+            @initial = nil
+        else @initial = string
+            append(string)
+        end
     end
     
     def append(string)
@@ -47,13 +58,12 @@ class BeatBox
     end
 
     def sort(text)
-        acceptable = "deep woo shi shu blop dep plop dop suu doo ditt hoo sweep fee mee tee keep holy moly ram blam bam doop oop beep"
+        acceptable = "deep woo shi shu blop dep plop dop suu doo ditt hoo sweep fee mee tee keep holy moly ram blam bam doop oop beep dee bop boop la na"
         if acceptable.include?(text) || acceptable.include?(text.reverse)
             true
         else false
         end
     end
-
 
     def count
         @list.count
@@ -64,9 +74,22 @@ class BeatBox
     end
 
     def play
-        `say -r 500 -v Boing #{@list.to_string}`
+        `say -r #{@rate} -v #{@voice} #{@list.to_string}`
     end
 
+    def rate=(number)
+        @rate = number
+    end
 
+    def reset_rate
+        @rate = 500
+    end
 
+    def voice=(name)
+        @voice = name
+    end
+
+    def reset_voice
+        @voice = "Boing"
+    end
 end

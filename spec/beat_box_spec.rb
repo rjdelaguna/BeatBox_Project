@@ -34,7 +34,7 @@ RSpec.describe BeatBox do
     it "plays sounds" do
         bb = BeatBox.new
         bb.append("deep doo ditt woo hoo shu")
-        # bb.play
+        bb.play
 
         expect(bb.count).to eq(6)
         expect(bb.list.count).to eq(6)
@@ -46,5 +46,21 @@ RSpec.describe BeatBox do
         bb.prepend(" mississippi plop   doo")
 
         expect(bb.all.include?("mississippi")).to eq(false)
-    end 
+    end
+    
+    it "changes voice and play speeed" do
+        bb = BeatBox.new("deep dop dop deep")
+        bb.rate = 100
+        p bb.rate
+        bb.voice = "Daniel"
+        p bb.voice
+        bb.play
+        bb.reset_rate
+        p bb.rate
+        bb.reset_voice
+        p bb.voice
+        bb.play
+
+        expect(bb.list.head.data).to eq("deep")
+    end
 end
