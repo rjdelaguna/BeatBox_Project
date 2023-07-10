@@ -67,7 +67,7 @@ RSpec.describe LinkedList do
     end
 
     describe "#prepend method" do
-        it "still appends multiple nodes" do
+        it "still appends nodes" do
             list = LinkedList.new
             list.append("plop")
             list.append("suu")
