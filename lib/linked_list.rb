@@ -59,7 +59,7 @@ class LinkedList
 
     def counter(node, count)
         if node.last_node? == true
-            countq
+            count
         else counter(node.next_node, count += 1)
         end
     end

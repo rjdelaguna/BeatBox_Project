@@ -19,7 +19,7 @@ class BeatBox
         if string == ""
         elsif string.index(" ") == nil && sort(string) == true
             @list.append(string)
-        else seperate(string)
+        else separate(string)
         end
     end
 
@@ -28,14 +28,14 @@ class BeatBox
         elsif string.index(" ") == nil && sort(string) == true
             @list.prepend(string)
         else string = string.reverse
-            seperate(string)
+            separate(string)
         end
     end
 
-    def seperate(string)
+    def separate(string)
         if string.index(" ") == 0
             string.slice!(0) 
-            seperate(string)
+            separate(string)
         elsif string == ""
         elsif string.index(" ") != nil
             text = string.slice!(0, string.index(" "))
@@ -46,7 +46,7 @@ class BeatBox
                 append(text)
             else
             end
-            seperate(string)
+            separate(string)
         elsif string.index(" ") == nil && sort(string) == true
             if caller.join.include?("prepend") == true && sort(string) == true
                 prepend(string.reverse)
