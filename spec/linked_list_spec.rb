@@ -57,7 +57,7 @@ RSpec.describe LinkedList do
             list.append("deep")
             list.append("bop")
             list.append("oop")
-#require 'pry'; binding.pry
+            
             expect(list.head.data).to eq("doop")
             expect(list.head.next_node.data).to eq("deep")
             expect(list.head.next_node.next_node.data).to eq("bop")

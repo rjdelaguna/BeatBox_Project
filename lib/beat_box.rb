@@ -58,8 +58,8 @@ class BeatBox
     end
 
     def sort(text)
-        acceptable = "deep woo shi shu blop dep plop dop suu doo ditt hoo sweep fee mee tee keep holy moly ram blam bam doop oop beep dee bop boop la na"
-        if acceptable.include?(text) || acceptable.include?(text.reverse)
+        acceptable = " deep woo shi shu blop dep plop dop suu doo ditt hoo sweep fee mee tee keep holy moly ram blam bam doop oop beep dee bop boop la na "
+        if acceptable.include?(" #{text} ") || acceptable.include?(" #{text.reverse} ")
             true
         else false
         end

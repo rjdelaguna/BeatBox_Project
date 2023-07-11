@@ -36,7 +36,7 @@ class LinkedList
         elsif position == 0
             prepend(text)
         else first = node_position(@head, position - 1)
-            following_node = node_position(head, position)
+            following_node = node_position(@head, position)
             first.next_node = node
             node.next_node = following_node
             node
@@ -59,7 +59,7 @@ class LinkedList
 
     def counter(node, count)
         if node.last_node? == true
-            count
+            countq
         else counter(node.next_node, count += 1)
         end
     end
