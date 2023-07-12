@@ -73,6 +73,17 @@ RSpec.describe LinkedList do
       expect(list.count).to eq(4)
       expect(list.to_string).to eq("doop deep bop oop")
     end
+
+    it "uses counter methode for multiple node count" do
+      list = LinkedList.new
+      list.append("doop")
+      list.append("deep")
+      list.append("bop")
+      list.append("oop")
+
+      expect(list.counter(list.head, 1)).to eq(4)
+    end
+
   end
 
   describe "prepending a single node into head position" do
