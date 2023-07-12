@@ -161,6 +161,18 @@ RSpec.describe LinkedList do
       expect(list.includes?("deep")).to eq(true)
       expect(list.includes?("dep")).to eq(false)
     end
+
+    it "uses data_finder method to determine include? boolean" do
+      list = LinkedList.new
+      list.append("deep")
+      list.append("woo")
+      list.append("shi")
+      list.append("shu")
+      list.append("blop")
+
+      expect(list.includes?("deep")).to eq(true)
+      expect(list.data_finder(list.head, "woo")).to eq(true)
+    end
   end
 
   describe "removing link from end of list" do
