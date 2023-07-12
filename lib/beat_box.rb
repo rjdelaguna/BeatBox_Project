@@ -1,5 +1,5 @@
 class BeatBox
-  attr_reader :list, :initial, :rate, :voice
+  attr_reader :list, :rate, :voice
   
   def initialize(initial = "")
     @list = LinkedList.new
@@ -63,7 +63,7 @@ class BeatBox
   end
 
   def sort(text)
-    acceptable = " deep woo shi shu blop dep plop dop suu doo ditt hoo sweep fee mee tee keep holy moly ram blam bam doop oop beep dee bop boop la na "
+    acceptable = " deep woo shi shu blop dep plop dop suu doo ditt hoo sweep fee mee tee keep holy moly ram blam bam doop oop beep dee bop boop la pop na "
     if acceptable.include?(" #{text} ") || acceptable.include?(" #{text.reverse} ")
       true
     else 

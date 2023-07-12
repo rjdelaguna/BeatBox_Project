@@ -31,6 +31,15 @@ RSpec.describe BeatBox do
     expect(bb.list.head.data).to eq ("deep")
   end
 
+  it "uses separate method to deal with multiple words in string" do
+    bb = BeatBox.new
+    bb.append("woo hoo shu")
+    bb.prepend("deep beep")
+    bb.separate("deep mighty beep")
+    
+    expect(bb.all).to eq("deep beep woo hoo shu deep beep")
+  end
+
   it "plays sounds" do
     bb = BeatBox.new
     bb.append("deep doo ditt woo hoo shu")
@@ -58,5 +67,14 @@ RSpec.describe BeatBox do
     # bb.play
 
     expect(bb.list.head.data).to eq("deep")
+  end
+
+  it "uses initial? method to store data from start of class" do
+    bb = BeatBox.new("deep dop dop deep")
+    bb1 = BeatBox.new
+    bb1.initial?("deep dop dop deep")
+
+    expect(bb.all).to eq("deep dop dop deep")
+    expect(bb1.all).to eq("deep dop dop deep")
   end
 end
