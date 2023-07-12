@@ -21,6 +21,15 @@ RSpec.describe LinkedList do
     expect(list.head.data).to eq("doop")
     expect(list.head.next_node).to eq (nil)
   end
+
+  it "uses a tail method to identify last node" do
+    list = LinkedList.new
+    list.append("doop")
+    list.append("dep")
+    list.append("pop")
+
+    expect(list.tail(list.head)).to eq(list.head.next_node.next_node)
+  end
     
   it "counts the number of nodes" do
     list = LinkedList.new
