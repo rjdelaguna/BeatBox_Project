@@ -36,8 +36,17 @@ RSpec.describe BeatBox do
     bb.append("woo hoo shu")
     bb.prepend("deep beep")
     bb.separate("deep mighty beep")
-    
+
     expect(bb.all).to eq("deep beep woo hoo shu deep beep")
+  end
+
+  it "uses sort method to tell if string should be added" do
+    bb = BeatBox.new
+    bb.append("woo hoo shu")
+    bb.prepend("deep mighty beep")
+
+    expect(bb.sort("deep")).to eq(true)
+    expect(bb.sort("mighty")).to eq(false)
   end
 
   it "plays sounds" do
