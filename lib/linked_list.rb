@@ -35,6 +35,7 @@ class LinkedList
   def insert(position, text)
     node = Node.new(text)
     if position + 1 > self.count
+      return
     elsif @head == nil
       @head = node
     elsif position == 0

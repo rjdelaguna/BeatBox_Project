@@ -19,6 +19,7 @@ class BeatBox
   
   def append(string)
     if string == ""
+      return
     elsif string.index(" ") == nil && sort(string) == true
       @list.append(string)
     else 
@@ -28,6 +29,7 @@ class BeatBox
 
   def prepend(string)
     if string == ""
+      return
     elsif string.index(" ") == nil && sort(string) == true
       @list.prepend(string)
     else 
@@ -41,6 +43,7 @@ class BeatBox
       string.slice!(0) 
       separate(string)
     elsif string == ""
+      return
     elsif string.index(" ") != nil
       text = string.slice!(0, string.index(" "))
       string.slice!(0)
@@ -48,8 +51,6 @@ class BeatBox
         prepend(text.reverse)
       elsif sort(text) == true
         append(text)
-      else 
-        return
       end
       separate(string)
     elsif string.index(" ") == nil && sort(string) == true
@@ -57,8 +58,6 @@ class BeatBox
         prepend(string.reverse)
       elsif sort(string) == true
         append(string)
-      else 
-        return
       end
     end
   end
