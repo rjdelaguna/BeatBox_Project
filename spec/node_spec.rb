@@ -18,4 +18,12 @@ RSpec.describe Node do
 
     expect(node.next_node).to eq(nil)
   end
+
+  describe "can identify if it's the last node" do
+    it "if node is last returns true" do
+      node = Node.new("plop")
+
+      expect(node.last_node?).to eq(true)
+    end
+  end
 end
