@@ -84,6 +84,16 @@ RSpec.describe LinkedList do
       expect(list.counter(list.head, 1)).to eq(4)
     end
 
+    it "uses string method to combine node data" do
+      list = LinkedList.new
+      list.append("doop")
+      list.append("deep")
+      list.append("bop")
+      list.append("oop")
+
+      expect(list.string(list.head.next_node, "#{list.head.data}")).to eq("doop deep bop oop")
+    end
+
   end
 
   describe "prepending a single node into head position" do
